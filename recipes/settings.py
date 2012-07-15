@@ -22,10 +22,15 @@ PROJECT_MODULE = 'recipes'
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
+# For PostgreSQL first do from the command line
+# echo "CREATE USER recipes WITH PASSWORD 'recipes'" | sudo -u postgres psql
+# echo "CREATE DATABASE recipes WITH OWNER recipes ENCODING 'UTF8'" | sudo -u postgres psql
+
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '/tmp/recipes.sql', # Or path to database file if using sqlite3.
+        'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'recipes', # Or path to database file if using sqlite3.
         'USER': 'recipes', # Not used with sqlite3.
         'PASSWORD': 'recipes', # Not used with sqlite3.
         'HOST': '', # Set to empty string for localhost. Not used with sqlite3.
